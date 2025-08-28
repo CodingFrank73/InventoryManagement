@@ -28,7 +28,7 @@ namespace InventoryManagement
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Items}/{action=Overview}/{id?}");
 
             app.Run();
         }
