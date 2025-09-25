@@ -31,5 +31,17 @@ namespace InventoryManagement.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(Item item)
+        {
+            return RedirectToAction(nameof(Overview));
+        }
+
+        public IActionResult Delete(int id)
+        {
+            return RedirectToAction(nameof(Overview));
+        }
     }
 }
+

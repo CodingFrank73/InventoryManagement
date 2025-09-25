@@ -1,7 +1,39 @@
-﻿<h1>Create a new item</h1>
+﻿@model Item
+
+<h1>Create a new item</h1>
 
 
-<form>
-    <input />
-    <button>Create</button>
+<form method="post" asp-controller="Items" asp-action="Create">
+
+    <div>
+        <label class="form-label" asp-for="Id"></label>
+        <input type="number" class="form-control" asp-for="Id" />
+        <span class="text-danger" asp-validation-for="Id"></span>
+    </div>
+
+    <div>
+        <label class="form-label" asp-for="Name"></label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>      
+
+    <div>
+        <label class="form-label" asp-for="Description"></label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+
+    <div class="mt-2">
+        <label class="form-label" asp-for="Stock"></label>
+        <input type="number" class="form-control" asp-for="Stock" />
+        <span class="text-danger" asp-validation-for="Stock"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Create</button>
 </form>
+
+@section Scripts {
+@{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
