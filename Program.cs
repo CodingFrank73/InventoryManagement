@@ -1,3 +1,7 @@
+using InventoryManagement.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
+
 namespace InventoryManagement
 {
     public class Program
@@ -5,6 +9,12 @@ namespace InventoryManagement
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                {
+                    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+                    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+                });
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
