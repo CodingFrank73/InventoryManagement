@@ -12,7 +12,7 @@ namespace InventoryManagement
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 {
-                    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+                    var connectionString = builder.Configuration.GetConnectionString("DefaultIIConnection");
                     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
                 });
 
