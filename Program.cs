@@ -12,7 +12,7 @@ namespace InventoryManagement
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 {
-                    var connectionString = builder.Configuration.GetConnectionString("DefaultIIConnection");
+                    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
                     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
                 });
 
@@ -38,7 +38,7 @@ namespace InventoryManagement
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Items}/{action=Overview}/{id?}");
+                pattern: "{controller=Items}/{action=Overview}");
 
             app.Run();
         }

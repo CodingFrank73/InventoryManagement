@@ -1,14 +1,12 @@
 ﻿@model Item
 
-<h1>Create a new item</h1>
+<h1>Create and Edit a item</h1>
 
 
-<form method="post" asp-controller="Items" asp-action="Create">
+<form method="post" asp-controller="Items" asp-action="CreateEditItem">
 
     <div>
-        <label class="form-label" asp-for="Id"></label>
-        <input type="number" class="form-control" asp-for="Id" />
-        <span class="text-danger" asp-validation-for="Id"></span>
+        <input hidden type="number" class="form-control" asp-for="Id" />
     </div>
 
     <div>
@@ -29,7 +27,7 @@
         <span class="text-danger" asp-validation-for="Stock"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3">Create</button>
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
 </form>
 
 @section Scripts {
